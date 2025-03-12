@@ -8,8 +8,8 @@
 
 ## Технологический стек
 
-- **SMTP / другие протоколы** — для отправки уведомлений??
-- **Database (PostgreSQL)** 
+- **кафка**
+- **Event driven architecture и event sourcing**
 
 ## Развитие
 
