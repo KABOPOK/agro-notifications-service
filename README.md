@@ -1,4 +1,5 @@
 # Notification Service
+![image](https://github.com/user-attachments/assets/7692efe0-1351-40c6-9bda-d0db6e4025f6)
 
 ## Задачи
 -сервис должен отправлять сообщения на почту(напрмер после регитсрации), #по протоколу?
