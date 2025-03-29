@@ -1,5 +1,12 @@
+# application.yml
 SERVER_PORT: 9091
+BOOTSTRAP_SERVER: localhost:29094  # For host machine access
+
 spring:
+  kafka:
+    bootstrap-servers: ${BOOTSTRAP_SERVER}
+    properties:
+      security.protocol: PLAINTEXT
   docker:
     compose:
       file: local/docker-compose.yaml
