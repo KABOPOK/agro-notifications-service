@@ -1,0 +1,7 @@
+openapi: 3.0.0
+info:
+  title: Agro Notifications API
+  description: Default OpenAPI specification for Agro Notifications API.
+  version: 1.0.0
+paths: {}
+

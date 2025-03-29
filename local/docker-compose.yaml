@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.1.1
+    expose:
+      - "2182"
+    env_file:
+      - .env
+
+  kafka:
+    image: confluentinc/cp-kafka:6.1.1
+    depends_on:
+      - zookeeper
+    expose:
+      - "29093"
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "kafka-topics --bootstrap-server kafka:29092 --list || exit 1" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  init-kafka:
+    image: confluentinc/cp-kafka:6.1.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: [ '/bin/sh', '-c' ]
+    command: |
+      "
+      echo 'Creating topics...'
+      kafka-topics --bootstrap-server kafka:29093 --create --if-not-exists --topic agro.notification.requests --replication-factor 1 --partitions 3
+      kafka-topics --bootstrap-server kafka:29093 --create --if-not-exists --topic agro.notification.responses --replication-factor 1 --partitions 3
+      echo 'Topics created:'
+      kafka-topics --bootstrap-server kafka:29093 --list
+      "
