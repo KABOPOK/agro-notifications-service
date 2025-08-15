@@ -16,6 +16,8 @@ spring:
             enable: true
   kafka:
     bootstrap-servers: ${BOOTSTRAP_SERVER}
+    consumer:
+      group-id: notificationServiceGroup
   #    consumer:
   #      enable-auto-commit: true
 server:

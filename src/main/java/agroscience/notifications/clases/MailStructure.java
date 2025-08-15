@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class MailStructure {
+
   private String subject;
   private String message;
+
 }
