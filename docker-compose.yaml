@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   notification_server:
     container_name: notification_server
@@ -47,3 +45,7 @@ services:
       echo 'Topics created:'
       kafka-topics --bootstrap-server kafka:29092 --list
       "
+networks:
+  default:
+    name: agronetwork
+    external: true
