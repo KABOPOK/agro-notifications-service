@@ -8,6 +8,7 @@ public class Constants {
 
     public static final String NOTIFICATION_REQUESTS_TOPIC = "agro.notification.requests";
     public static final String MESSAGE_WAS_SENT = "The message was sent : ";
+    public static final String NOTIFICATION_TYPE = "notification_type";
 
     public static final String EMAIL =  "email";
     public static final String USER_ID = "user_id";

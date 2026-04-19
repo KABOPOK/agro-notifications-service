@@ -2,7 +2,11 @@ agro:
   notification:
     requests: "agro.notification.requests"
     responses: "agro.notification.responses"
+
 spring:
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:27017/${MONGO_DATABASE}?authSource=admin
   mail:
     host: smtp.gmail.com
     port: 587
@@ -19,9 +23,7 @@ spring:
     bootstrap-servers: ${BOOTSTRAP_SERVER}
     consumer:
       group-id: notificationServiceGroup
-  #    consumer:
-  #      enable-auto-commit: true
+  mongock:
+    migration-scan-package: agroscience.notifications.migrations
 server:
   port: ${SERVER_PORT}
-
-

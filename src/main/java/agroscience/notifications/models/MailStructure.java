@@ -1,4 +1,4 @@
-package agroscience.notifications.clases;
+package agroscience.notifications.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

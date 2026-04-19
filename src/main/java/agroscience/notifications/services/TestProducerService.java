@@ -1,7 +1,6 @@
 package agroscience.notifications.services;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +17,9 @@ public class TestProducerService {
 
   public void sendTestMessage() {
     String testMessage = String.format(
-            "{ \"user_id\": \"%s\", \"email\": \"mishavvvsweater@gmail.com\", \"trace_id\": \"%s\" }",
-            UUID.randomUUID(), UUID.randomUUID()
+        "{ \"user_id\": \"%s\", \"email\": \"mishavvvsweater@gmail.com\", " +
+            "\"trace_id\": \"%s\", \"notification_type\": \"EMAIL_CONFIRMATION\" }",
+        UUID.randomUUID(), UUID.randomUUID()
     );
 
     kafkaTemplate.send(NOTIFICATION_REQUESTS_TOPIC, testMessage);
