@@ -66,15 +66,6 @@ class NotificationsServiceApplicationTests extends BaseIntegrationTest {
                 }
                 """.formatted(userId, email, traceId));
 
-    future.whenComplete((result, ex) -> {
-      if (ex != null) {
-
-      } else {
-            result.getRecordMetadata().offset(),
-            result.getRecordMetadata().partition());
-      }
-    });
-
     await().atMost(10, TimeUnit.SECONDS).untilAsserted(() -> {
       ArgumentCaptor<SimpleMailMessage> captor =
           ArgumentCaptor.forClass(SimpleMailMessage.class);
