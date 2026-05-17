@@ -3,6 +3,9 @@ agro:
     requests: "agro.notification.requests"
     responses: "agro.notification.responses"
 
+mongock:
+  migration-scan-package: agroscience.notifications.migrations
+
 spring:
   data:
     mongodb:
@@ -23,7 +26,5 @@ spring:
     bootstrap-servers: ${BOOTSTRAP_SERVER}
     consumer:
       group-id: notificationServiceGroup
-  mongock:
-    migration-scan-package: agroscience.notifications.migrations
 server:
   port: ${SERVER_PORT}

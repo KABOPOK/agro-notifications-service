@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+mongock:
+  enabled: false
+
+agro:
+  notification:
+    requests: "agro.notification.requests"
+    responses: "agro.notification.responses"
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notificationServiceGroup
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: test@test.com
+    password: "test"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
